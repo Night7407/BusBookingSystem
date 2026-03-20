@@ -26,6 +26,9 @@ public class BookingService {
     @Autowired
     PasswordEncoder passwordEncoder;
 
+    @Autowired
+    BusRepository busRepository;
+
     public String saveUser(User user){
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRole("USER");
