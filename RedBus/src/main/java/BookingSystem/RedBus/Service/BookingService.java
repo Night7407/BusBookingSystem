@@ -68,6 +68,10 @@ public class BookingService {
          return booking.getPassengers();
     }
 
+    public List<Bus> viewAllBus(String source, String destination){
+        return busRepository.findBySourceAndDestination(source,destination);
+    }
+
 
 
 
