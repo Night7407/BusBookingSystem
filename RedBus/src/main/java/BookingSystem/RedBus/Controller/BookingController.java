@@ -18,6 +18,10 @@ public class BookingController {
     BookingService bookingService;
 
 
+    @GetMapping("/view/{source}/{destination}")
+    public List<Bus> findBySourceAndDestination(@PathVariable String source, @PathVariable String destination) {
+        return bookingService.viewAllBus(source,destination);
+    }
     @PostMapping("/booking")
     public String booking(@RequestBody Booking booking){
         return bookingService.saveBooking(booking);
