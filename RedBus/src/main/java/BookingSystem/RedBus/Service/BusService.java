@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -48,6 +49,9 @@ public class BusService {
 
 
 
+    }
+    public List<Bus> viewAllBus(String source, String destination){
+        return busRepository.findBySourceAndDestination(source,destination);
     }
 
 }

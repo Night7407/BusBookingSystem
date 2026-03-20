@@ -6,13 +6,16 @@ import BookingSystem.RedBus.Entity.Bus;
 import BookingSystem.RedBus.Entity.Passenger;
 import BookingSystem.RedBus.Entity.User;
 import BookingSystem.RedBus.Exception.BookingNotFound;
+import BookingSystem.RedBus.Exception.BusNotFound;
 import BookingSystem.RedBus.Exception.UserNotFound;
 import BookingSystem.RedBus.Repo.BookingRepository;
+import BookingSystem.RedBus.Repo.BusRepository;
 import BookingSystem.RedBus.Repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -71,9 +74,7 @@ public class BookingService {
          return booking.getPassengers();
     }
 
-    public List<Bus> viewAllBus(String source, String destination){
-        return busRepository.findBySourceAndDestination(source,destination);
-    }
+
 
 
 

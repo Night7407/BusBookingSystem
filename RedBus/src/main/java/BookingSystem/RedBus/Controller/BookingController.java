@@ -2,9 +2,12 @@ package BookingSystem.RedBus.Controller;
 
 
 import BookingSystem.RedBus.Entity.Booking;
+import BookingSystem.RedBus.Entity.Bus;
 import BookingSystem.RedBus.Entity.Passenger;
 import BookingSystem.RedBus.Entity.User;
+import BookingSystem.RedBus.Repo.BookingRepository;
 import BookingSystem.RedBus.Service.BookingService;
+import BookingSystem.RedBus.Service.BusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,11 +19,13 @@ public class BookingController {
 
     @Autowired
     BookingService bookingService;
+    @Autowired
+    BusService busService;
 
 
     @GetMapping("/view/{source}/{destination}")
     public List<Bus> findBySourceAndDestination(@PathVariable String source, @PathVariable String destination) {
-        return bookingService.viewAllBus(source,destination);
+        return busService.viewAllBus(source,destination);
     }
     @PostMapping("/booking")
     public String booking(@RequestBody Booking booking){
